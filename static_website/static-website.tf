@@ -31,6 +31,8 @@ resource "google_compute_backend_bucket" "website" {
   project = var.project_id
 }
 
+
+#Added a index object to bucket 
 resource "google_storage_bucket_object" "object" {
   name   = "index.html"
   source = "./index.html"

@@ -16,7 +16,7 @@ variable "credentials"{
 }
 
 variable "network_vpc"{
-    default = "coding-challenge-vpc"
+    default = "coding-challenge"
     type = string
     description = "VPC Network Name"
 }

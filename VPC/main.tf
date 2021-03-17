@@ -44,31 +44,27 @@ resource "google_compute_subnetwork" "protected_subnet" {
 }
 
 resource "google_compute_router" "router" {
-  name    = "router"
+  name    = "challenge-router"
   project = var.project_id
   region  = var.region
   network = google_compute_network.vpc_network.id  
 }
 
-resource "google_compute_address" "address" {
-  count  = length(google_compute_subnetwork.private_subnet[*])
-  name   = "nat-ip-${count.index}"
-  region = var.region
-}
-
-# resource "google_compute_router_nat" "private_nat" {
-#   name   = "my-router-nat"
-#   router = google_compute_router.router.name
-#   region = google_compute_router.router.region
-
-#   nat_ip_allocate_option = "MANUAL_ONLY"
-#   nat_ips                = google_compute_address.address.*.self_link
-
-#   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
-#   subnetwork {
-#     name                    = google_compute_subnetwork.private_subnet[0].id
-#     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
-#   }
+resource "google_compute_router_nat" "advanced-nat" {
+  name    = "my-router-nat"
+  project = var.project_id
+   router = google_compute_router.router.name
+   region = google_compute_router.router.region
+  nat_ip_allocate_option             = "AUTO_ONLY"
+  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
+  
+  dynamic "subnetwork" {
+    for_each = google_compute_subnetwork.private_subnet[*].self_link
+    content {
+      name = subnetwork.value
+      source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
+    }
+  }
 }
 
 
