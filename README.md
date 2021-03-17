@@ -1,6 +1,6 @@
 ## To apply, create terraform.tfvars file with custom values for the variables below, then run:
 
-**terraform init**
+**terraform init** <br>
 **terraform apply**
 
 ### region = "us-east1"
