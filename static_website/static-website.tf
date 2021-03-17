@@ -33,7 +33,7 @@ resource "google_compute_backend_bucket" "website" {
 
 resource "google_storage_bucket_object" "object" {
   name   = "index.html"
-  source = "/static-website/index.html"
+  source = "./index.html"
   bucket = google_storage_bucket.static-site.id 
 }
 
