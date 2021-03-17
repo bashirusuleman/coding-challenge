@@ -56,19 +56,19 @@ resource "google_compute_address" "address" {
   region = var.region
 }
 
-resource "google_compute_router_nat" "private_nat" {
-  name   = "my-router-nat"
-  router = google_compute_router.router.name
-  region = google_compute_router.router.region
+# resource "google_compute_router_nat" "private_nat" {
+#   name   = "my-router-nat"
+#   router = google_compute_router.router.name
+#   region = google_compute_router.router.region
 
-  nat_ip_allocate_option = "MANUAL_ONLY"
-  nat_ips                = google_compute_address.address.*.self_link
+#   nat_ip_allocate_option = "MANUAL_ONLY"
+#   nat_ips                = google_compute_address.address.*.self_link
 
-  source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
-  subnetwork {
-    name                    = google_compute_subnetwork.private_subnet[0].id
-    source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
-  }
+#   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
+#   subnetwork {
+#     name                    = google_compute_subnetwork.private_subnet[0].id
+#     source_ip_ranges_to_nat = ["ALL_IP_RANGES"]
+#   }
 }
 
 
