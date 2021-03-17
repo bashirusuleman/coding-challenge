@@ -1,4 +1,4 @@
-## To apply, create terraform.tfvars file with custom values for the variables below, then run:
+## To apply, create terraform.tfvars file with custom values for the variables below, then run:<br>
 
 > ## __terraform init__ <br>
 > ## __terraform apply__
