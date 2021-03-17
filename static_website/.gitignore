@@ -2,4 +2,5 @@
 .terraform*
 terraform.tfvars
 credentials.json
-terraform.tf*
+terraform.tfstate.backup
+terraform.tfstate
