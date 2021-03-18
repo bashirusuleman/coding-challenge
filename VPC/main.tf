@@ -58,6 +58,7 @@ resource "google_compute_router_nat" "advanced-nat" {
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "LIST_OF_SUBNETWORKS"
   
+  #To dynamic add all private subnets to the NAT
   dynamic "subnetwork" {
     for_each = google_compute_subnetwork.private_subnet[*].self_link
     content {
