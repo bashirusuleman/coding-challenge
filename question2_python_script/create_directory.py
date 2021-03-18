@@ -1,8 +1,6 @@
 #This is a python script to create directories using certain file names and copy files
 
 import os
-import shutil
-
 
 source_file = input("Enter the path of the source directory")
 destination = []
