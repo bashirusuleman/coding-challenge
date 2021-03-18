@@ -68,7 +68,19 @@ resource "google_compute_router_nat" "advanced-nat" {
   }
 }
 
-
+# Add a firewall rule to allow HTTP, SSH, and RDP traffic
+resource "google_compute_firewall" "allow-http-ssh-rdp-icmp" {
+project = var.project_id
+name = "allow-http-ssh-rdp-icmp"
+network = google_compute_network.vpc_network.self_link
+allow {
+    protocol = "tcp"
+    ports    = var.ports 
+    }
+allow {
+    protocol = "icmp"
+    }
+}
 
 
   

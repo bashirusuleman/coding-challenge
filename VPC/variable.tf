@@ -34,3 +34,9 @@ variable "router" {
   default = "challenge-router"
   type = string
 }
+
+variable "ports" {
+    default = ["22", "80", "3389"]
+    type = list(string) 
+    description = "List of Ports to be confgiured in the firewall rule"
+}
