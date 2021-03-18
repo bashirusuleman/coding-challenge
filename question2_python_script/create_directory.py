@@ -2,19 +2,25 @@
 
 import os
 import shutil
+import fnmatch
 
-source_directory = input("Enter the path to the source directory")
-source_directory_files = os.listdir(source_directory)
 
-#create a directory using file name pattern YY/MM/DD/AA
-try:
-  for source_file in source_directory_files:
-    YY = source_file[10:12]
-    MM = source_file[8:10]
-    DD = source_file[6:8]
-    AA = source_file[0:2]
-    dir_join = f'{YY}/{MM}/{DD}/{AA}'    
-    dir = os.makedirs(dir_join)    
+destination = []
+
+#Make Directory for First Month 
+def create_directory(directory):
+  for dirpath, dirnames, files in os.walk(directory):
+    for file in files:
+      if file.endswith(".Z01"):
+         yy = file[10:12]
+        mm = file[8:10]
+        dd = file[6:8]
+        fc = file[0:2]
+
+        dest = yy + "/"+ mm + "/" + dd + "/" + fc + "/"
+        if not os.path.exists(dest):
+          os.makedirs(dest)
+          destination.append(dest)
+    return destination
       
-except FileExistsError:
-  print("Directories Already Exist")
+derectory = create_directory("./source_dir")
