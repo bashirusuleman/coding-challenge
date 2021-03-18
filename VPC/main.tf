@@ -82,6 +82,24 @@ allow {
     }
 }
 
+resource "google_compute_firewall" "allow-internal" {
+  project = var.project_id
+  name    = "private-subnet-allow-internal"
+  network = google_compute_network.vpc_network.self_link
+  allow {
+    protocol = "icmp"
+  }
+  allow {
+    protocol = "tcp"
+    ports    = ["0-65535"]
+  }
+  allow {
+    protocol = "udp"
+    ports    = ["0-65535"]
+  }
+  source_ranges = google_compute_subnetwork.private_subnet[*].ip_cidr_range
+  
+}
 
   
 
