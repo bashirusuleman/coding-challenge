@@ -34,8 +34,8 @@ resource "google_compute_backend_bucket" "website" {
 
 #Added a index object to bucket 
 resource "google_storage_bucket_object" "object" {
-  name   = "index.html"
-  source = "./index.html"
+  name   = var.bucket-object
+  source = var.file-object
   bucket = google_storage_bucket.static-site.id 
 }
 

@@ -44,14 +44,14 @@ resource "google_compute_subnetwork" "protected_subnet" {
 }
 
 resource "google_compute_router" "router" {
-  name    = "challenge-router"
+  name    = var.router
   project = var.project_id
   region  = var.region
   network = google_compute_network.vpc_network.id  
 }
 
 resource "google_compute_router_nat" "advanced-nat" {
-  name    = "my-router-nat"
+  name    = var.nat_router
   project = var.project_id
    router = google_compute_router.router.name
    region = google_compute_router.router.region

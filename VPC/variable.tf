@@ -18,16 +18,19 @@ variable "credentials"{
 variable "network_vpc"{
     default = "coding-challenge"
     type = string
-    description = "VPC Network Name"
-}
-
-
-variable "website"{
-    type = string
-    default = "code-challenge.com"
+    description = "VPC Name"
 }
 
 variable "location"{
     type = string
     default = "US"
+}
+
+variable "nat_router" {
+    type = string
+    default = "coding-challenge-nat"
+}
+variable "router" {
+  default = "challenge-router"
+  type = string
 }

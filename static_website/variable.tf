@@ -21,4 +21,14 @@ variable "location"{
     default = "US"
 }
 
+variable "bucket-object"{
+    type = string
+    default = "index.html"
+}
+
+variable "file-object"{
+    type = string
+    default = "./index.html"
+}
+
 
