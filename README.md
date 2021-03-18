@@ -5,7 +5,7 @@
 > ## __terraform init__ <br>
 > ## __terraform apply__
 
-### region = "us-east1"
-### credentials = "./credentials.json"
-### project_id = "ABCDEFGH"
-### number = 1
+### region = REGION
+### credentials = "./PATH_TO_SERVICEACCOUNT_CREDENTIALS.json"
+### project_id = "GCP_PORJECT_ID"
+### number = NUMBER GREATER THAN OR EQUAL TO 0 BUT LESS THAN NUMBER OF AZs IN A REGION
