@@ -3,7 +3,8 @@
 ## To apply, create terraform.tfvars file with custom values for the variables below, then run:<br>
 
 > ## __terraform init__ <br>
-> ## __terraform apply__
+> ## __terraform plan__ <br>
+> ## __terraform apply__ <br>
 
 ### region = REGION
 ### credentials = "./PATH_TO_SERVICEACCOUNT_CREDENTIALS.json"
