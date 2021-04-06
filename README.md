@@ -1,4 +1,6 @@
-# This Repo contains codes for VPC Deployment in GCP , python script to automate the creation of directories and copying of files to destination directories based on the names of the files in the source directory.
+# This Repo contains codes for:
+- VPC Deployment in GCP
+- Python script to automate the creation of directories and copying of files to destination directories based on the names of the files in the source directory.
 
 # For GCP deployment using terraform:
 
