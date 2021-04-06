@@ -1,4 +1,6 @@
-# GCP Deployment 
+# This Repo contains codes for VPC Deployment in GCP , python script to automate the creation of directories and copying of files to destination directories based on the names of the files in the source directory.
+
+# For GCP deployment using terraform:
 
 ## To apply, create terraform.tfvars file with custom values for the variables below, then run:<br>
 
